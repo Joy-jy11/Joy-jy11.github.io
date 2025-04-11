@@ -1,0 +1,231 @@
+---
+layout: ../layouts/Layout.astro
+title: "Art3D: Training-Free 3D Generation from Flat-Colored Illustration" 
+description: Simple project page template for your research paper, built with Astro and Tailwind CSS
+favicon: favicon.svg
+thumbnail: screenshot-light.png
+---
+
+import Header from "../components/Header.astro";
+import Video from "../components/Video.astro";
+import HighlightedSection from "../components/HighlightedSection.astro";
+import SmallCaps from "../components/SmallCaps.astro";
+import Figure from "../components/Figure.astro";
+import Image from "../components/Image.astro";
+import TwoColumns from "../components/TwoColumns.astro";
+import YouTubeVideo from "../components/YouTubeVideo.astro";
+import LaTeX from "../components/LaTeX.astro";
+
+import { ImageComparison } from "../components/ImageComparison.tsx";
+
+
+import Splat from "../components/Splat.tsx"
+import teaser from "../assets/teaser_v3.png"
+import pipeline from "../assets/pipeline.png"
+import p_trellis from "../assets/p_trellis.png"
+import p_ours from "../assets/p_ours.png"
+import p_gt from "../assets/p_gt.png"
+import taco_ours from "../assets/taco_ours.png"
+import taco_gt from "../assets/taco_gt.png"
+import boy_ours from "../assets/boy_ours.png"
+import boy_gt from "../assets/boy_gt.png"
+import boy_ln3diff from "../assets/boy_ln3diff.png"
+import r_ours from "../assets/r_ours.png"
+import r_shape from "../assets/r_shape.png"
+import dog_ours from "../assets/dog_ours.png"
+import dog_lgm from "../assets/dog_lgm.png"
+import fox_ours from "../assets/fox_ours.png"
+import fox_instantmesh from "../assets/fox_instantmesh.png"
+import man_ours from "../assets/man_ours.png"
+import man_3dtopia from "../assets/man_3dtopia.png"
+
+
+
+import CodeBlock from "../components/CodeBlock.astro";
+import Table from "../components/Table.astro";
+export const components = {pre: CodeBlock, table: Table}
+
+<Header
+  title={frontmatter.title}
+  authors={[
+    {
+      name: "Xiaoyan Cong",
+      url: "https://oliver-cong02.github.io/",
+      //institution: "Brown University",
+      notes: ["*"],
+    },
+    {
+      name: "Jiayi Shen",
+      //institution: "Brown University",
+      notes: ["*"],
+    },
+    {
+      name: "Zekun Li",
+      url: "https://kunkun0w0.github.io/",
+      //institution: "Brown University",
+    },
+    {
+      name: "Rao Fu",
+      url: "https://freddierao.github.io/",
+      //institution: "Brown University",
+    },
+    {
+      name: "Tao Lu",
+      url: "https://inspirelt.github.io/",
+      //institution: "Brown University",
+    },
+    {
+      name: "Srinath Sridhar",
+      url: "https://cs.brown.edu/people/ssrinath/",
+      //institution: "Brown University",
+    },
+  ]}
+  conference="Brown University"
+  notes={[
+    {
+      symbol: "*",
+      text: "Equal Contribution",
+    },
+    {
+      symbol: "†",
+      text: "author note two",
+    },
+  ]}
+  links={[
+    {
+      name: "Paper",
+      url: "",
+      icon: "ri:file-pdf-2-line",
+    },
+    {
+      name: "Code",
+      url: "https://github.com/RomanHauksson/academic-project-astro-template",
+      icon: "ri:github-line",
+    },
+    {
+      name: "arXiv",
+      url: "",
+      icon: "academicons:arxiv",
+    },
+  ]}
+  />
+
+
+<Image source={teaser} altText="Diagram" />
+
+<HighlightedSection>
+
+## Abstract
+
+Large-scale pre-trained image-to-3D generative models have exhibited remarkable capabilities in diverse shape generations.
+However, most of them failed to synthesize plausible 3D assets when the reference image is flat-colored like hand drawings, which are often the most user-friendly input modalities in art content creation. To this end, we propose Art3D, a training-free method that can lift flat-colored 2D designs into 3D. By enhancing the three-dimensionality illusion of reference images based on the structure feature through pretrained 2D image generation models, Art3D is generalized to versatile painting styles. To benchmark the generalization performance of existing image-to-3D models on flat images without 3D feeling, we collect a new dataset, Flat-2D, with over 100 flat images. Experimental results demonstrate the performance and robustness of Art3D, exhibiting superior generalizable capacity and promising practical applicability. Our source code and dataset will be publicly available upon acceptance.
+
+
+</HighlightedSection>
+
+## Pipeline
+
+Art3D adds 3D illusion to the flat-colored image through ControlNet based on the structure features, e.g., canny
+edge or depth map. The mesh is then synthesized based on the proxy image and textured by baking information from the input image.
+
+<Figure>
+  <Image slot="figure" source={pipeline} altText="Diagram of the transformer deep learning architecture." />
+  <span slot="caption"></span>
+</Figure>
+
+## Visual Comparisons
+
+<div style={{ 
+  display: 'grid', 
+  gridTemplateColumns: 'repeat(3, 1fr)', 
+  gap: '1.5rem', 
+  placeItems: 'center'
+}}>
+
+  <Figure>
+    <ImageComparison slot="figure" client:load imageUrlOne={p_trellis.src} imageUrlTwo={p_ours.src} altTextOne="xxx" altTextTwo="..." />
+    <span slot="caption">Trellis [Xiang 2024] vs Ours</span>
+  </Figure>
+
+  <Figure>
+    <ImageComparison slot="figure" client:load imageUrlOne={dog_lgm.src} imageUrlTwo={dog_ours.src} altTextOne="..." altTextTwo="..." />
+    <span slot="caption">LGM [Tang 2024] vs Ours</span>
+  </Figure>
+
+  <Figure>
+    <ImageComparison slot="figure" client:load imageUrlOne={fox_instantmesh.src} imageUrlTwo={fox_ours.src} altTextOne="..." altTextTwo="..." />
+    <span slot="caption">InstantMesh [Xu 2024] vs Ours</span>
+  </Figure>
+
+  <Figure>
+    <ImageComparison slot="figure" client:load imageUrlOne={man_3dtopia.src} imageUrlTwo={man_ours.src} altTextOne="..." altTextTwo="..." />
+    <span slot="caption">3DTopia-XL [Chen 2024] vs Ours</span>
+  </Figure>
+
+  <Figure>
+    <ImageComparison slot="figure" client:load imageUrlOne={boy_ln3diff.src} imageUrlTwo={boy_ours.src} altTextOne="..." altTextTwo="..." />
+    <span slot="caption">LN3Diff [Lan 2024] vs Ours</span>
+  </Figure>
+
+   <Figure>
+    <ImageComparison slot="figure" client:load imageUrlOne={r_shape.src} imageUrlTwo={r_ours.src} altTextOne="..." altTextTwo="..." />
+    <span slot="caption">Shap-E [Jun 2023] vs Ours</span>
+  </Figure>
+
+</div>
+
+
+## Two columns
+
+Use the two columns component to display two columns of content. In this example, the first column contains a figure with a YouTube video and the second column contains a figure with a custom [React](https://react.dev/) component. By default, they display side by side, but if the screen is narrow enough (for example, on mobile), they're arranged vertically.
+
+<TwoColumns>
+  <Figure slot="left">
+    <YouTubeVideo slot="figure" videoId="wjZofJX0v4M" />
+    <span slot="caption">Take a look at this YouTube video.</span>
+  </Figure>
+  <Figure slot="right">
+    <Splat slot="figure" client:idle />
+    <span slot="caption">Now look at this <a href="https://en.wikipedia.org/wiki/Gaussian_splatting">Gaussian splat</a>, rendered with a React component.</span>
+  </Figure>
+</TwoColumns>
+
+## Heading levels
+
+Use headings to divide your content into sections.
+
+### Heading 3
+
+Go down a level to heading 3...
+
+#### Heading 4
+
+...and down again to heading 4.
+
+## LaTeX
+
+You can also add LaTeX formulas, rendered during the build process using [KaTeX](https://katex.org/) so they're quick to load for visitors of your project page. You can write them inline, like this: <LaTeX inline formula="a^2 + b^2 = c^2" />. Or, you can write them as a block:
+
+<LaTeX formula="\int_a^b f(x) dx" />
+
+## Tables
+
+You can add simple tables using [GitHub Flavored Markdown syntax](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/organizing-information-with-tables):
+
+| Model | Accuracy | F1 score | Training time (hours) |
+| :--- | :---: | :---: | :---: |
+| BERT-base | 0.89 | 0.87 | 4.5 |
+| RoBERTa-large | 0.92 | 0.91 | 7.2 |
+| DistilBERT | 0.86 | 0.84 | 2.1 |
+| XLNet | 0.90 | 0.89 | 6.8 |
+
+## BibTeX citation
+
+```bibtex
+@misc{roman2024academic,
+  author = "{Roman Hauksson}",
+  title = "Academic Project Page Template",
+  year = "2024",
+  howpublished = "\url{https://research-template.roman.technology}",
+}
+```
