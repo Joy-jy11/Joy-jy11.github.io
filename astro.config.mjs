@@ -7,6 +7,7 @@ import svelte from "@astrojs/svelte"
 
 export default defineConfig({
   site: 'https://Joy-jy11.github.io',  // <--- this is enough
+  base: '/',
   output: 'static',
   integrations: [tailwind(), icon(), mdx(), react(), svelte()],
   markdown: {
