@@ -1,26 +1,60 @@
 ---
-import type { Author, Note, Link } from "../types/types";
+import type { Author, Note, Link, Course } from "../types/types";
 import Links from "./Links.astro";
 import Authors from "./Authors.astro";
 import Notes from "./Notes.astro";
+import Courses from "./Courses.astro";
 
 interface Props {
   title: string;
   authors: Author[];
+  course?: Course;
+  school?: string;
   conference?: string;
   notes?: Note[];
   links: Link[];
 }
 
-const { title, authors, conference, notes, links } = Astro.props as Props;
+const { title, authors, course, school, conference, notes, links } =
+  Astro.props as Props;
 ---
 
-<header class="flex flex-col gap-10 items-center mb-6">
-  <h1>{title}</h1>
-  <div class="flex flex-col gap-6 items-center">
+<header class="flex flex-col gap-6 items-center mb-6">
+  <h1
+    class="text-5xl font-extrabold bg-gradient-to-r from-lime-500 via-slate-400 to-rose-400 bg-clip-text text-transparent text-zinc-700"
+  >
+    {title}
+  </h1>
+
+  <div class="flex flex-col gap-3 items-center">
     <Authors authors={authors} />
-    {conference && <p class="text-center">{conference}</p>}
-    {notes && <Notes notes={notes} />}
+
+    {course && <Courses course={course} />}
+
+    {
+      school && (
+        <p class="text-center bg-gradient-to-r from-lime-600 via-zinc-500 to-rose-400 bg-clip-text text-transparent text-zinc-700">
+          {school}
+        </p>
+      )
+    }
+
+    {
+      conference && (
+        <p class="text-center bg-gradient-to-r from-lime-600 via-zinc-500 to-rose-400 bg-clip-text text-transparent text-zinc-700 ]">
+          {conference}
+        </p>
+      )
+    }
+
+    {
+      notes && (
+        <div class="text-center text-zinc-500">
+          <Notes notes={notes} />
+        </div>
+      )
+    }
+
     {links && <Links links={links} />}
   </div>
 </header>

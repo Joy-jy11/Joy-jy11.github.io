@@ -16,4 +16,9 @@ type Note = {
   text: string;
 }
 
-export { Author, Link, Note };
+type Course = {
+  name: string;
+  url: string;
+}
+
+export { Author, Link, Note, Course };

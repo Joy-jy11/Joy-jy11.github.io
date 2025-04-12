@@ -1,22 +1,20 @@
-@media (prefers-color-scheme: dark) {
-
-  .astro-code,
-  .astro-code span {
-    color: var(--shiki-dark) !important;
-    /* background-color: var(--shiki-dark-bg) !important; */
-    /* Optional, if you also want font styles */
-    font-style: var(--shiki-dark-font-style) !important;
-    font-weight: var(--shiki-dark-font-weight) !important;
-    text-decoration: var(--shiki-dark-text-decoration) !important;
-  }
-}
-
+/* REMOVE all dark-related shiki settings */
 body {
   font-family: "Noto Sans", sans-serif;
 }
 
+/* Shiki code block - always light */
+.astro-code,
+.astro-code span {
+  color: var(--shiki-light) !important;
+  background-color: var(--shiki-light-bg) !important;
+  font-style: var(--shiki-light-font-style) !important;
+  font-weight: var(--shiki-light-font-weight) !important;
+  text-decoration: var(--shiki-light-text-decoration) !important;
+}
+
 a {
-  @apply text-blue-500 dark:text-blue-300 hover:underline;
+  @apply text-blue-500 hover:underline;
 }
 
 p {
@@ -32,7 +30,7 @@ h2 {
 }
 
 h3 {
-  @apply w-full text-xl font-bold;
+  @apply w-full text-xl;
 }
 
 h4 {
@@ -40,11 +38,11 @@ h4 {
 }
 
 table {
-  @apply border-y-2 border-black dark:border-zinc-50;
+  @apply border-y-2 border-black;
 }
 
 thead {
-  @apply border-b border-black dark:border-zinc-50;
+  @apply border-b border-black;
 }
 
 th,
@@ -58,4 +56,8 @@ ul {
 
 ol {
   @apply prose list-decimal list-inside w-full;
+}
+
+.gradient-section-title {
+  @apply text-3xl font-extrabold bg-gradient-to-r from-lime-400 via-zinc-300 to-rose-300 bg-clip-text text-transparent text-zinc-700 drop-shadow-[1px_1px_0_#e5e7eb];
 }

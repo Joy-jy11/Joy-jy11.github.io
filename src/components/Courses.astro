@@ -1,0 +1,20 @@
+---
+import type { Course } from "../types/types";
+
+interface Props {
+    course: Course;
+}
+
+const { course } = Astro.props;
+---
+
+<p class="text-center">
+    <a
+        href={course.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="bg-gradient-to-r from-lime-500 via-zinc-500 to-rose-400 bg-clip-text text-transparent text-zinc-700 hover:text-zinc-600 hover:underline"
+    >
+        {course.name}
+    </a>
+</p>

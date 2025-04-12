@@ -16,6 +16,7 @@ import TwoColumns from "../components/TwoColumns.astro";
 import YouTubeVideo from "../components/YouTubeVideo.astro";
 import LaTeX from "../components/LaTeX.astro";
 import MeshViewer from "../components/MeshViewer.astro";
+import BibtexBox from '../components/BibtexBox.astro';
 
 
 import { ImageComparison } from "../components/ImageComparison.tsx";
@@ -85,32 +86,39 @@ export const components = {pre: CodeBlock, table: Table}
       //institution: "Brown University",
     },
   ]}
-  conference="Brown University"
+  course={{ name: "Course Project of CSCI 1430 Computer Vision", url: "https://browncsci1430.github.io/#home-content" }}
+  school="Brown University"
   notes={[
     {
       symbol: "*",
       text: "Equal Contribution",
     },
-    {
-      symbol: "†",
-      text: "author note two",
-    },
+    //{
+    //  symbol: "†",
+    //  text: "author note two",
+    //},
   ]}
   links={[
     {
       name: "Paper",
       url: "",
-      icon: "ri:file-pdf-2-line",
+      icon: "ri:file-pdf-2-fill",
     },
     {
-      name: "Code",
+      name: "Code (Coming Soon)",
       url: "",
-      icon: "ri:github-line",
+      icon: "ri:github-fill",
     },
     {
       name: "arXiv",
       url: "",
       icon: "academicons:arxiv",
+    },
+    {
+      name: "Dataset (Coming Soon)",
+      url: "",
+      icon: "ri:download-cloud-fill",
+      //icon: "ri:folder-zip-fill",
     },
     {
       name: "Data Gallery",
@@ -120,8 +128,15 @@ export const components = {pre: CodeBlock, table: Table}
   ]}
   />
 
-
-<Image source={teaser} altText="Diagram" />
+<Figure>
+  <Image
+    slot="figure"
+    source={teaser}
+    altText="Diagram"
+    class="max-w-full"
+  />
+  <span slot="caption"></span>
+</Figure>
 
 <HighlightedSection>
 
@@ -231,15 +246,16 @@ edge or depth map. The mesh is then synthesized based on the proxy image and tex
 
 
 
-</HighlightedSection>
+
 
 ## BibTeX citation
 
-```bibtex
-@misc{roman2024academic,
-  author = "{Roman Hauksson}",
-  title = "Academic Project Page Template",
-  year = "2024",
-  howpublished = "\url{https://research-template.roman.technology}",
-}
-```
+  <BibtexBox bibtex={`@misc{roman2024academic,
+    author = "{Roman Hauksson}",
+    title = "Academic Project Page Template",
+    year = "2024",
+    howpublished = "\\url{https://research-template.roman.technology}",
+  }`} />
+
+
+</HighlightedSection>

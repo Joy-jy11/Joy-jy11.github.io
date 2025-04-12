@@ -12,24 +12,31 @@ const { authors } = Astro.props;
   {
     authors.map((author) => (
       <div class="flex flex-col items-center text-center">
-        <span class="text-xl flex flex-row">
+        <span class="text-l flex flex-row text-zinc-700">
           {author.url ? (
-            <a href={author.url} class="">
+            <a
+              href={author.url}
+              class="bg-gradient-to-r from-lime-600 via-zinc-500 to-rose-400 bg-clip-text text-transparent text-zinc-700 hover:text-zinc-800 hover:underline"
+            >
               {author.name}
             </a>
           ) : (
             author.name
           )}
+
           {author.notes && (
-            <sup class="text-xl">
+            <sup class="text-xl text-zinc-500">
               {author.notes.map(
                 (note, index, array) =>
-                  note + (index < array.length - 1 ? "," : "")
+                  note + (index < array.length - 1 ? "," : ""),
               )}
             </sup>
           )}
         </span>
-        {author.institution && <p>{author.institution}</p>}
+
+        {author.institution && (
+          <p class="text-zinc-500 text-sm">{author.institution}</p>
+        )}
       </div>
     ))
   }
