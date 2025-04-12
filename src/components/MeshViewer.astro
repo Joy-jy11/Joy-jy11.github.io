@@ -1,0 +1,22 @@
+---
+// Optional: accept props like mesh src, name etc
+const { src, alt, caption } = Astro.props;
+---
+
+<script
+    type="module"
+    src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"
+></script>
+
+<div class="flex flex-col items-center">
+    <model-viewer
+        src={src}
+        alt={alt}
+        camera-controls
+        auto-rotate
+        environment-image=""
+        shadow-intensity="1"
+        style="width: 150px; height: 150px;"></model-viewer>
+
+    <h3 class="text-sm mt-2 text-center">{caption}</h3>
+</div>

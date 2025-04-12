@@ -1,0 +1,131 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const images = [
+    "/gallery/boy2.jpg",
+    "/gallery/duck.jpg",
+    "/gallery/dog.jpg",
+    "/gallery/pig2.jpg",
+    "/gallery/chicken5.jpg",
+    "/gallery/chicken4.jpg",
+    "/gallery/rabbit.jpg",
+    "/gallery/turtle.jpg",
+    "/gallery/monster10.jpg",
+    "/gallery/icon.jpg",
+    "/gallery/otter4.jpg",
+    "/gallery/chicken6.jpg",
+    "/gallery/hotdog.jpg",
+    "/gallery/monster11.jpg",
+    "/gallery/chicken3.jpg",
+    "/gallery/chicken2.jpg",
+    "/gallery/dog2.jpg",
+    "/gallery/bread.jpg",
+    "/gallery/pinkbear.jpg",
+    "/gallery/fly.jpg",
+    "/gallery/elephant.jpg",
+    "/gallery/otter2.jpg",
+    "/gallery/platypus.jpg",
+    "/gallery/otter3.jpg",
+    "/gallery/person6.jpg",
+    "/gallery/person7.jpg",
+    "/gallery/taco2.jpg",
+    "/gallery/sandwhich.jpg",
+    "/gallery/chicken.jpg",
+    "/gallery/monster2.jpg",
+    "/gallery/cat2.jpg",
+    "/gallery/boysunglass.jpg",
+    "/gallery/person10.jpg",
+    "/gallery/sheep.jpg",
+    "/gallery/cone.jpg",
+    "/gallery/bird.jpg",
+    "/gallery/cat3.jpg",
+    "/gallery/person4.jpg",
+    "/gallery/mad.jpg",
+    "/gallery/cow.jpg",
+    "/gallery/gemmon.jpg",
+    "/gallery/monster3.jpg",
+    "/gallery/person.jpg",
+    "/gallery/girl.jpg",
+    "/gallery/monster7.jpg",
+    "/gallery/panda.jpg",
+    "/gallery/raccoon.jpg",
+    "/gallery/cat6.jpg",
+    "/gallery/monster6.jpg",
+    "/gallery/monster4.jpg",
+    "/gallery/cat4.jpg",
+    "/gallery/person3.jpg",
+    "/gallery/dinosaur.jpg",
+    "/gallery/person2.jpg",
+    "/gallery/cat5.jpg",
+    "/gallery/mug.jpg",
+    "/gallery/monster8.jpg",
+    "/gallery/wolf.jpg",
+    "/gallery/orange.jpg",
+    "/gallery/man.jpg",
+    "/gallery/monster9.jpg",
+    "/gallery/burger2.jpg",
+    "/gallery/pancake.jpg",
+    "/gallery/cat.jpg",
+    "/gallery/axolotl.jpg",
+    "/gallery/insect.jpg",
+    "/gallery/rum.jpg",
+    "/gallery/alien.jpg",
+    "/gallery/garlic.jpg",
+    "/gallery/girl2.jpg",
+    "/gallery/person9.jpg",
+    "/gallery/person8.jpg",
+    "/gallery/girl3.jpg",
+    "/gallery/flower.jpg",
+    "/gallery/girl1.jpg",
+    "/gallery/lemon2.jpg",
+    "/gallery/bananacat.jpg",
+    "/gallery/elephant2.jpg",
+    "/gallery/hotdog3.jpg",
+    "/gallery/cucumber.jpg",
+    "/gallery/lemon.jpg",
+    "/gallery/dinosaur4.jpg",
+    "/gallery/hotdog2.jpg",
+    "/gallery/fox.jpg",
+    "/gallery/eggplant.jpg",
+    "/gallery/bird2.jpg",
+    "/gallery/bread2.jpg",
+    "/gallery/bird3.jpg",
+    "/gallery/dinosaur3.jpg",
+    "/gallery/otter.jpg",
+    "/gallery/hotdog5.jpg",
+    "/gallery/boy.jpg",
+    "/gallery/pig.jpg",
+    "/gallery/donut.jpg",
+    "/gallery/rabbit2.jpg",
+    "/gallery/hotdog4.jpg",
+    "/gallery/taco.jpg",
+    "/gallery/dinosaur2.jpg",
+    "/gallery/hotdog6.jpg",
+    "/gallery/monster.jpg",
+    "/gallery/bird4.jpg",
+    "/gallery/burger.jpg",
+    "/gallery/bag.jpg",
+];
+---
+
+<Layout frontmatter={{ title: "Data Gallery", favicon: "favicon.svg" }}>
+    <h1 class="text-3xl font-bold mb-6 text-center">Data Gallery</h1>
+
+    <section
+        class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-6 px-4 py-6"
+    >
+        {
+            images.map((src) => (
+                <div class="flex justify-center">
+                    <div class="w-full aspect-square overflow-hidden rounded-lg shadow-lg">
+                        <img
+                            src={src}
+                            alt="Gallery image"
+                            class="w-full h-full object-cover"
+                        />
+                    </div>
+                </div>
+            ))
+        }
+    </section>
+</Layout>
