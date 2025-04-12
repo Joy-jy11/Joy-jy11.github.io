@@ -21,7 +21,7 @@ const { title, authors, course, school, conference, notes, links } =
 
 <header class="flex flex-col gap-6 items-center mb-6">
   <h1
-    class="text-5xl font-extrabold bg-gradient-to-r from-lime-500 via-slate-400 to-rose-400 bg-clip-text text-transparent text-zinc-700"
+    class="text-5xl font-extrabold bg-gradient-to-r from-lime-500 via-slate-400 to-rose-400 bg-clip-text text-transparent"
   >
     {title}
   </h1>
@@ -33,7 +33,7 @@ const { title, authors, course, school, conference, notes, links } =
 
     {
       school && (
-        <p class="text-center bg-gradient-to-r from-lime-600 via-zinc-500 to-rose-400 bg-clip-text text-transparent text-zinc-700">
+        <p class="text-center bg-gradient-to-r from-lime-600 via-zinc-500 to-rose-400 bg-clip-text text-transparent">
           {school}
         </p>
       )
@@ -41,7 +41,7 @@ const { title, authors, course, school, conference, notes, links } =
 
     {
       conference && (
-        <p class="text-center bg-gradient-to-r from-lime-600 via-zinc-500 to-rose-400 bg-clip-text text-transparent text-zinc-700 ]">
+        <p class="text-center bg-gradient-to-r from-lime-600 via-zinc-500 to-rose-400 bg-clip-text text-transparent">
           {conference}
         </p>
       )
