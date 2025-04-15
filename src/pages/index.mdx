@@ -100,7 +100,7 @@ export const components = {pre: CodeBlock, table: Table}
   links={[
     {
       name: "Paper",
-      url: "",
+      url: "https://arxiv.org/pdf/2504.10466",
       icon: "ri:file-pdf-2-fill",
     },
     {
@@ -110,7 +110,7 @@ export const components = {pre: CodeBlock, table: Table}
     },
     {
       name: "arXiv",
-      url: "",
+      url: "https://arxiv.org/abs/2504.10466",
       icon: "academicons:arxiv",
     },
     {
@@ -141,14 +141,15 @@ export const components = {pre: CodeBlock, table: Table}
 
 ## Abstract
 
-Large-scale pre-trained image-to-3D generative models have exhibited remarkable capabilities in diverse shape generations.
-However, most of them failed to synthesize plausible 3D assets when the reference image is flat-colored like hand drawings, 
-which are often the most user-friendly input modalities in art content creation. To this end, we propose Art3D, a training-free 
-method that can lift flat-colored 2D designs into 3D. By enhancing the three-dimensionality illusion of reference images based on 
-the structure feature through pretrained 2D image generation models, Art3D is generalized to versatile painting styles. 
-To benchmark the generalization performance of existing image-to-3D models on flat images without 3D feeling, we collect a new dataset, 
-Flat-2D, with over 100 flat images. Experimental results demonstrate the performance and robustness of Art3D, exhibiting superior 
-generalizable capacity and promising practical applicability. Our source code and dataset will be publicly available upon acceptance.
+Large-scale pre-trained image-to-3D generative models have exhibited remarkable capabilities in diverse shape generations. 
+However, most of them struggle to synthesize plausible 3D assets when the reference image is flat-colored like hand drawings 
+due to the lack of 3D illusion, which are often the most user-friendly input modalities in art content creation. To this end, 
+we propose Art3D, a training-free method that can lift flat-colored 2D designs into 3D. By leveraging structural and semantic 
+features with pre- trained 2D image generation models and a VLM-based realism evaluation, Art3D successfully enhances the 
+three-dimensional illusion in reference images, thus simplifying the process of generating 3D from 2D, and proves adaptable to 
+a wide range of painting styles. To benchmark the generalization performance of existing image-to-3D models on flat-colored 
+images without 3D feeling, we collect a new dataset, Flat-2D, with over 100 samples. Experimental results demonstrate the 
+performance and robustness of Art3D, exhibiting superior generalizable capacity and promising practical applicability.
 
 
 
@@ -249,12 +250,15 @@ edge or depth map. The mesh is then synthesized based on the proxy image and tex
 
 ## BibTeX citation
 
-  <BibtexBox bibtex={`@misc{roman2024academic,
-    author = "{Roman Hauksson}",
-    title = "Academic Project Page Template",
-    year = "2024",
-    howpublished = "\\url{https://research-template.roman.technology}",
-  }`} />
+  <BibtexBox bibtex={`@misc{cong2025art3dtrainingfree3dgeneration,
+      title={Art3D: Training-Free 3D Generation from Flat-Colored Illustration}, 
+      author={Xiaoyan Cong and Jiayi Shen and Zekun Li and Rao Fu and Tao Lu and Srinath Sridhar},
+      year={2025},
+      eprint={2504.10466},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2504.10466}, 
+}`} />
 
 
 </HighlightedSection>
