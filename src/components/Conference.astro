@@ -1,0 +1,20 @@
+---
+import type { Conference } from "../types/types";
+
+interface Props {
+    conference: Conference;
+}
+
+const { conference } = Astro.props;
+---
+
+<p class="text-center">
+    <a
+        href={conference.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="font-bold bg-gradient-to-r from-lime-500 via-zinc-500 to-rose-400 bg-clip-text text-transparent hover:text-zinc-600 hover:underline"
+    >
+        {conference.name}
+    </a>
+</p>

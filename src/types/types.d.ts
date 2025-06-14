@@ -21,4 +21,9 @@ type Course = {
   url: string;
 }
 
-export { Author, Link, Note, Course };
+type Conference = {
+  name: string;
+  url: string;
+}
+
+export { Author, Link, Note, Course, Conference };
